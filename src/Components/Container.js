@@ -1,6 +1,26 @@
 import React, { Component } from 'react';
 
 class Container extends React.Component {
+
+
+constructor(props) {
+      super(props);
+      
+      this.state = {
+         photos:[],
+      }
+     
+   };
+
+  componentDidMount() {
+    fetch('https://server3.kproxy.com/servlet/redirect.srv/sruj/saoaayskuujhzbkiz/p1/react/admin/wp-json/wp/v2/posts')
+      .then(response => response.json())
+      .then(apidata => this.setState({ photos:apidata }));
+
+     
+  }
+
+
    render() {
       return (
 
@@ -11,6 +31,18 @@ class Container extends React.Component {
   
   <div class="wrapper">
     <div class="">
+
+
+                      <ul>
+                          {this.state.photos.map(photo =>
+                            <li key={photo.id}>
+                              {photo.id}
+                            
+                            </li>
+                          )}
+                        </ul>
+
+
       <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4 masonry">
         <li class="masonry-item grid">
           <figure class="effect-sarah"> <img src="assets/images/gallery/01.jpg" alt="" />

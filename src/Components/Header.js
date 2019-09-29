@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
 class Header extends React.Component {
    render() {
       return (
@@ -24,12 +26,20 @@ class Header extends React.Component {
           </div>
           <div class="cross"> <span class="linee linea1"></span> <span class="linee linea2"></span> <span class="linee linea3"></span> </div>
           <div class="main-menu">
-            <ul>
-              <li class="active"><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="blog.html">blog</a></li>
-              <li><a href="contact.html">contact</a></li>
-            </ul>
+
+          <ul>
+                      <li>
+                        <Link to="/">Home</Link>
+                     </li>
+                      <li>
+                        <Link to="/about">About</Link>
+                      </li>
+                      <li>
+                        <Link to="/contact">Contact</Link>
+                      </li>
+                  </ul>
+
+            
           </div>
         </div>
       </nav>
